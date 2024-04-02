@@ -30,6 +30,10 @@ public class Helper {
                 message = "Processing is Succesful";
                 title = "Succesfull!";
                 break;
+            case "notFound":
+                message = "User Not Found!!";
+                title = "Not Found!";
+                break;
             default:
                 message = str;
                 title = "Message";
