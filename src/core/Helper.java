@@ -30,6 +30,10 @@ public class Helper {
                 message = "Processing is Succesful";
                 title = "Succesfull!";
                 break;
+            case "error":
+                message = "Wrong Operation!!";
+                title = "Error!";
+                break;
             case "notFound":
                 message = "User Not Found!!";
                 title = "Not Found!";
