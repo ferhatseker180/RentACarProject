@@ -45,6 +45,16 @@ public class Helper {
         JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public static boolean confirm(String str) {
+        String msg;
+        if (str.equals("sure")) {
+            msg = "Are You Sure For This Event?";
+        } else {
+            msg = str;
+        }
+        return JOptionPane.showConfirmDialog(null,msg,"Are You Sure?",JOptionPane.YES_NO_OPTION) == 0;
+    }
+
     // isFieldEmpty() : Textfield'ların dolu veya boş olması durumuna göre boolean değer döndürür.
     public static boolean isFieldEmpty(JTextField field) {
         return field.getText().trim().isEmpty();
