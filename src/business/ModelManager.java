@@ -66,4 +66,34 @@ public class ModelManager {
     public ArrayList<Model> getByListBrandId(int brandId) {
         return this.modelDao.getByListBrandId(brandId);
     }
+
+    public ArrayList<Model> searchForTable(int brand_id, Model.Fuel fuel, Model.Gear gear, Model.Type type) {
+        String select = "SELECT * FROM public.model";
+        ArrayList<String> whereList = new ArrayList<>();
+
+        if (brand_id != 0) {
+            whereList.add("model_brand_id = " + brand_id);
+        }
+
+        if (fuel != null) {
+            whereList.add("model_fuel ='" + fuel.toString() + "'");
+        }
+
+        if (type != null) {
+            whereList.add("model_type ='" + type.toString() + "'");
+        }
+
+        if (gear != null) {
+            whereList.add("model_gear ='" + gear.toString() + "'");
+        }
+        String whereStr = String.join(" AND ", whereList);
+        String query = select;
+        if (whereStr.length() > 0) {
+            query += " WHERE " + whereStr;
+        }
+
+        System.out.println(whereList);
+        return this.modelDao.selectByQuery(query);
+
+    }
 }
